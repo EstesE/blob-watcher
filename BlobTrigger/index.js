@@ -130,11 +130,11 @@ module.exports = async function (context, myBlob) {
     const containerName = "properties"
     const blobName = context.bindingData.name;
 
-    console.log(`                                                                           `);
+    console.log(`-------------------------------------------------------------------------------`);
     await moveBlob(containerName, 'uploads', 'website-files', blobName);
     for (const format of formats) {
         let name = await resizeAndWriteToBlob(containerName, blobName, format);
         await compress(containerName, name);
     }
-    console.log(`                                                                           `);
+    console.log(`-------------------------------------------------------------------------------`);
 };
