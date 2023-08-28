@@ -40,42 +40,6 @@ async function deleteBlob(containerName, blobName) {
     }
 }
 
-async function readBlobToStream(containerName, blobName) {
-    try {
-        const containerClient = blobServiceClient.getContainerClient(containerName);
-        const blobClient = containerClient.getBlobClient(blobName);
-        const response = await blobClient.download();
-        const blobStream = response.readableStreamBody;
-
-        const resizedStream = blobStream.pipe(sharp().resize({ width: 300 }));
-
-        const fileStream = fs.createWriteStream("resized.jpg");
-
-        resizedStream.pipe(fileStream);
-
-        await new Promise((resolve) => {
-            resizedStream.on("end", resolve);
-        });
-
-        console.log('resized');
-    
-        // // Create a writable stream to save the blob data
-        // const fileStream = fs.createWriteStream("pxfuel.jpg");
-    
-        // // Pipe the blob stream to the file stream
-        // blobStream.pipe(fileStream);
-    
-        // // Wait for the stream to finish writing
-        // await new Promise((resolve) => {
-        //   blobStream.on("end", resolve);
-        // });
-    
-        // console.log("Blob image has been successfully downloaded to 'downloaded_image.jpg'");
-      } catch (error) {
-        console.error("Error downloading the blob image:", error);
-      }
-}
-
 async function writeBufferToBlob(containerName, blobName, buffer, originalSize) {
     try {
         const containerClient = blobServiceClient.getContainerClient(containerName);
