@@ -1,0 +1,11 @@
+{
+  "bindings": [
+    {
+      "name": "myBlob",
+      "type": "blobTrigger",
+      "direction": "in",
+      "path": "properties/uploads/{name}",
+      "connection": "queue_STORAGE"
+    }
+  ]
+}

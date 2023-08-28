@@ -1,0 +1,17 @@
+{
+  "name": "blob-watcher",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "func start",
+    "test": "echo \"No tests yet...\""
+  },
+  "dependencies": {
+    "@azure/storage-blob": "^12.15.0",
+    "config": "^3.3.9",
+    "dotenv": "^16.3.1",
+    "imagemin": "^7.0.1",
+    "imagemin-guetzli": "^3.0.0",
+    "sharp": "^0.32.5"
+  }
+}
