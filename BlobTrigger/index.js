@@ -131,7 +131,6 @@ module.exports = async function (context, myBlob) {
 
     // deleteBlob(containerName, blobName);
     await moveBlob(`${containerName}`, 'uploads', 'website-files', blobName);
-    // await readBlobToStream(containerName, `website-files/${blobName}`);
     const originalSize = await resizeAndWriteToBlob(containerName, blobName, 300);
     await compress(containerName, blobName, originalSize);
 
