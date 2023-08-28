@@ -1,20 +1,10 @@
-// const azure = require('azure-storage');
-// const fs = require('fs');
-
-// // Azure Blob Storage connection string and container name
-// const connectionString = 'queue_STORAGE';
-// const containerName = 'z-image-processing';
-
-// // Create a BlobServiceClient to work with the blob storage
-// const blobService = azure.createBlobService(connectionString);
-
 'use strict';
+
 require("dotenv").config();
 const path = require("path");
 const config = require("config");
-// const { BlobServiceClient } = require("@azure/storage-blob");
+
 const { BlobServiceClient, StorageSharedKeyCredential, BlobHTTPHeaders } = require("@azure/storage-blob");
-const fs = require('fs');
 const sharp = require('sharp');
 const imagemin = require('imagemin');
 const guetzli = require('imagemin-guetzli');
