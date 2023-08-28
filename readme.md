@@ -1,0 +1,1 @@
+BlobTrigger/readme.md
